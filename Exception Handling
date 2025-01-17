@@ -1,0 +1,46 @@
+/*********************************************************************************************************************************************/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void testexception(){
+      throw range_error("Thie is range error");
+}
+int main(){
+
+       try{
+            testexception();
+       }
+       catch(const exception&e){
+          cout<<"Caught an exception: "<<e.what()<<endl;
+       }
+}
+
+/********************************************************************************************************************************************/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void testexception(int val){
+      if(val==1){
+        throw logic_error("this is logical error");
+      }else if(val==2){
+        throw runtime_error("Runtime error occured:");
+      }else{
+         throw exception();
+      }
+}
+int main(){
+
+     try{
+        testexception(3);
+     } catch(const logic_error&e){
+         cout<<"caught a logic error: "<<e.what()<<endl;
+     } catch(const runtime_error& e){
+        cout<<"Caught a runtime error: "<<e.what()<<endl;
+     }catch (const exception&e){
+         cout<<"Genric Exception occured:"<<e.what()<<endl;
+     }
+}
+
+/********************************************************************************************************************************************************************/
