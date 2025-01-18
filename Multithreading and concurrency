@@ -1,0 +1,16 @@
+#include <iostream>
+#include <thread>
+#include <chrono>
+using namespace std;
+void printHello(){
+    this_thread::sleep_for(chrono::seconds(5));
+    cout<<"task is running asynchronusly"<<endl;
+}
+int main() {
+    cout<<"Main thread starts"<<endl;
+    thread t(printHello);
+    t.detach();
+    cout<<"Main thread continue without waiting"<<endl;
+    this_thread::sleep_for(chrono::seconds(3));
+    cout<<"After sleeps 3 minute"<<endl;
+}
